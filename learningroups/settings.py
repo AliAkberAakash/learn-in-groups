@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'o6ydbx!)4s@68khi3+$y)!kar#g3#di1!mjzz@e*r6bc6wq7z&'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -37,6 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #local
+    'users.apps.UsersConfig',
+    'auth0login',
+    'groups',
+
+    #third party
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +83,12 @@ WSGI_APPLICATION = 'learningroups.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE':'django.db.backends.postgresql',
+        'NAME':'postgres',
+        'USER':'postgres',
+        'PASSWORD':'postgres',
+        'HOST':'db',
+        'PORT':5432
     }
 }
 
@@ -99,6 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL='users.CustomUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -118,3 +131,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Auth0 Credentials
+
+SOCIAL_AUTH_TRAILING_SLASH = os.environ.get('SOCIAL_AUTH_TRAILING_SLASH')  # Remove trailing slash from routes
+SOCIAL_AUTH_AUTH0_DOMAIN = os.environ.get('SOCIAL_AUTH_AUTH0_DOMAIN')
+SOCIAL_AUTH_AUTH0_KEY = os.environ.get('SOCIAL_AUTH_AUTH0_KEY')
+SOCIAL_AUTH_AUTH0_SECRET = os.environ.get('SOCIAL_AUTH_AUTH0_SECRET')
+
+SOCIAL_AUTH_AUTH0_SCOPE = [
+    'openid',
+    'profile',
+    'email'
+]
+
+AUTHENTICATION_BACKENDS = {
+    'auth0login.auth0backend.Auth0',
+    'django.contrib.auth.backends.ModelBackend'
+}
+
+LOGIN_URL = 'http://localhost:8000/login/auth0'
+LOGIN_REDIRECT_URL = 'http://localhost:8000/dashboard'

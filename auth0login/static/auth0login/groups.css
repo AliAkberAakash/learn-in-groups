@@ -1,0 +1,112 @@
+body{
+
+	margin: 0;
+	padding: 0;
+	background: #F4F5F7;
+}
+
+.list{
+
+	 
+	background-image:url("img/Group 10023.svg") !important;
+    background-repeat: no-repeat;
+    background-size: contain;
+   	margin-left: -61px;
+   	margin-top: -55px;
+	width: 419px;
+	height: 1191px;
+	background-color:#FFFFFF;
+}
+
+.menu ul{
+
+	padding-top: 350px;
+}
+
+.menu i{
+
+	font-size:30px;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 25px;
+	color: #707070;
+}
+
+.menu li{
+		
+	color: #707070;
+	font-size: 18px;
+	font-weight: normal;
+	font-family: open-sans;
+}
+
+
+.main {
+    width: 50%;
+   /* margin: 20px auto;*/
+    margin-left: 10px;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.navbar-brand img{
+
+	margin-left: 400px;
+	margin-top: -20px;
+	border-radius: 15px;
+
+
+}
+
+h2{
+
+	color: #1A225A;
+	font-size: 36px;
+	margin-left: 50px;
+}
+
+.course{
+
+	margin-left:20px;
+}
+
+.course a {
+  float: left;
+  padding: 12px;
+  color:#999DB5;
+  text-decoration: none;
+  font-size: 17px;
+  margin-right: -1px;
+}
+
+.poster{
+
+	margin-left: 20px;
+}
+
+.progress{
+	margin-left:50px;
+	height: 300px;
+	width:100%;
+}
+
+h3,h4{
+		margin-left: 50px;
+
+}

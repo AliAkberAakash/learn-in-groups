@@ -1,0 +1,61 @@
+body {
+  
+  
+	background-image:url("index_bg.png") !important; /*img/Group 10008@2x.png*/
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    height: 40em;
+    background-attachment: scroll;
+    margin-top: 0;
+    padding: 0;
+    font-family: Open Sans;
+}
+
+.btn-lg{
+		
+	width: 170px;
+	height: 60px;
+	float: right;
+	background-color: #DEEBFF;
+	color: #5645BA;
+	font-size: 18px;
+}
+
+.text{
+
+	margin-top: 80px;
+	font-weight: bold;
+
+}
+
+.search{
+
+	width: 320px;
+	height: 80px;
+    border-radius: 12px;
+    margin-top: 35px;
+  }
+
+.example input[type=text] {
+
+
+          padding:10px;
+          font-size: 14px;
+          width: 75%;
+          border: 1px solid #A7A7A7;
+          float:left;
+          border-radius: 4px 0px 0px 4px;
+
+}
+
+.example button {
+    width: 25%;
+    padding: 10px;
+    font-size: 14px;
+	background:#328Bb8;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    color:white;
+	border-radius: 0px 4px 4px 0px;
+}
